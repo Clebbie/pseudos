@@ -1,0 +1,13 @@
+version: "3"
+
+tasks:
+  assemble:
+    cmds:
+      - riscv64-unknown-elf-as boot.S -o boot.o
+
+  link:
+    cmds:
+      - riscv64-unknown-elf-ld -T kernel.lds boot.o -o kernel.elf
+  clean:
+    cmds:
+      - rm boot.o kernel.elf
